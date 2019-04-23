@@ -89,8 +89,8 @@ void executeCB(const mg_msgs::follow_PolyPVA_XY_trajectoryGoalConstPtr &goal, Se
     J22 = (1/r)*(sin(yaw)+cos(yaw)/rho);
     
     //Publish a reference trajectory to monitor on rviz
-    reftraj.pose.position.x = Xt(time);
-    reftraj.pose.position.y = Yt(time);
+    reftraj.pose.position.x = Xt(time)-cos(yaw)*0.05;
+    reftraj.pose.position.y = Yt(time)-sin(yaw)*0.05;
     reftraj.pose.position.z = 0;
     reftraj.pose.orientation.w = cos(time*rad/2.0);
     reftraj.pose.orientation.z = sin(-time*rad/2.0);
